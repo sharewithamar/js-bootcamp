@@ -42,8 +42,8 @@ addIncome(myAccount, 500)
 console.log(myAccount)
 
 //getAccountSummary- Account for Amar has $900 . $1000 in income $100 in expenses.
-
+myAccount.expenses = 100;
 let getAccountSummary = function (account) {
-    return `Account for ${account.name} has $${account.income} in income $${account.expenses} in expenses`
+    return `Account for ${account.name} has $${account.income - account.expenses}. $${account.income} in income $${account.expenses} in expenses`
 }
 console.log(getAccountSummary(myAccount))
