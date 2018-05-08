@@ -1,3 +1,6 @@
+
+//assigning an object to another varible or modifying the properties of a passed object refrers to the same object
+//If you assign with new object creation then both object entitites are different
 let myAccount = {
     name: 'Amar',
     expenses: 0,
@@ -12,8 +15,35 @@ otherAccount.income = 1000;
 let addExpense = function (account, amount) {
     //  account = {}
     account.expenses += amount;
-    console.log(account)
+    //console.log(account)
 }
 
 addExpense(myAccount, 100)
+
+//addIncome
+
+let addIncome = function (account, income) {
+    account.income += income;
+}
+
+
+//resetAccount 
+
+let resetAccount = function (account) {
+    account.income = 0;
+    account.expenses = 0;
+
+}
+
+resetAccount(myAccount)
 console.log(myAccount)
+
+addIncome(myAccount, 500)
+console.log(myAccount)
+
+//getAccountSummary- Account for Amar has $900 . $1000 in income $100 in expenses.
+
+let getAccountSummary = function (account) {
+    return `Account for ${account.name} has $${account.income} in income $${account.expenses} in expenses`
+}
+console.log(getAccountSummary(myAccount))
