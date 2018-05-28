@@ -44,3 +44,26 @@ console.log(notes)
 //reading/setting value with breacket notation
 notes[2] = 'new note bracket'
 console.log(notes)
+
+
+//foreach -args individual item,index
+//ForEach can work only with exisiting data
+
+notes.forEach(function (item, index) {
+    console.log(index)
+
+    console.log(item)
+
+})
+
+//for loop - counting ...1 up to 3
+//For loop can work without array data as well like just looping number counter
+// array.length - 1 // for descend loop
+
+for (let count = 0; count <= 2; count++) {
+    console.log(`counting...${count + 1}`);
+}
+
+for (let count = 0; count < notes.length; count++) {
+    console.log(notes[count])
+}
