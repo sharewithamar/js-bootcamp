@@ -72,7 +72,7 @@
 //console.log(notes.indexOf('new note bracket'))
 
 const notes = [{
-    title: 'My next trip',
+    title: 'my next trip',
     body: 'I would like to go to spain'
 
 }, {
@@ -105,8 +105,51 @@ const findNote = function (notes, noteTitle) {
 
 
 }
+
+//filter - returns new array
+
+const findNotes = function (notes, query) {
+
+    return notes.filter((note, index) => {
+        const isTitleMatch = note.title.toLowerCase().includes(query.toLowerCase())
+        const isBodyMatch = note.body.toLowerCase().includes(query.toLowerCase())
+
+        return isTitleMatch || isBodyMatch
+    })
+
+}
+
+//sort 
+// -1  a comes first
+// 1 b comes first 
+// 0 - no change
+//comparison
+//console.log('a' < 'b') //true
+//console.log('a' < 'A')  // false -capital letters come first
+
+
+const sortNotes = function (notes) {
+    notes.sort(function (a, b) {
+        if (a.title.toLowerCase() < b.title.toLowerCase()) {
+            return -1
+        }
+        else if (b.title.toLowerCase() < a.title.toLowerCase()) {
+            return 1
+        }
+        else {
+            return 0
+        }
+    })
+}
+
+sortNotes(notes)
+console.log(notes)
+
+//console.log(findNotes(notes, 'trip'))
+
+
 const note = findNote(notes, 'office modification')
-console.log(note)
+//console.log(note)
 
 //findIndex
 // const index = notes.findIndex(function (note, index) {

@@ -46,5 +46,33 @@ const deleteTodo = function (todos, text) {
 
 
 }
-deleteTodo(todos, 'HTML5')
+
+
+const getThingsToDO = function (todos) {
+    return todos.filter((todo) => !todo.completed)
+}
+
+
+const sortTodos = function (todos) {
+    todos.sort((a, b) => {
+        if (!a.completed && b.completed) {
+            return -1
+        }
+        else if (!b.completed && a.completed) {
+            return 1
+
+        }
+        else {
+            return 0
+        }
+    })
+}
+
+sortTodos(todos)
+
 console.log(todos)
+
+//console.log(getThingsToDO(todos))
+
+//deleteTodo(todos, 'HTML5')
+//console.log(todos)
