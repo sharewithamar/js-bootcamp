@@ -57,3 +57,7 @@ todos.forEach(todo => {
     currentTodoElement.textContent = todo.text
     document.querySelector('body').appendChild(currentTodoElement)
 })
+
+document.querySelector('#add-todo').addEventListener('click', (e) => {
+    console.log("Add todo button clicked")
+}) 
