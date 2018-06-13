@@ -58,9 +58,9 @@ p.forEach(element => {
     document.querySelector('body').appendChild(currentTodoElement)
 })
  */
-document.querySelector('#add-todo').addEventListener('click', (e) => {
+/* document.querySelector('#add-todo').addEventListener('click', (e) => {
     console.log("Add todo button clicked")
-})
+}) */
 
 const filters = {
     searchText: ''
@@ -86,4 +86,12 @@ renderTodos(todos, filters.searchText)
 document.querySelector('#search-text').addEventListener('input', (e) => {
     filters.searchText = e.target.value
     renderTodos(todos, filters.searchText)
-}) 
+})
+
+document.querySelector('#todo-form').addEventListener('submit', (e) => {
+    e.preventDefault()
+    const newTodo = { text: e.target.elements.todoText.value, completed: false }
+    todos.push(newTodo)
+    renderTodos(todos, filters.searchText)
+
+})

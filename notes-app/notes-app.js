@@ -66,11 +66,18 @@ renderNotes(notes, filters)
 document.querySelector('#create-note').addEventListener('click', (e) => {
     e.target.textContent = 'Add button was clicked'
 })
-document.querySelector('#remove-all').addEventListener('click', (e) => {
+/* document.querySelector('#remove-all').addEventListener('click', (e) => {
     document.querySelectorAll('.note').forEach(note => note.remove())
 })
-
+ */
 document.querySelector('#search-text').addEventListener('input', (e) => {
     filters.searchText = e.target.value
     renderNotes(notes, filters)
+})
+
+document.querySelector('#name-form').addEventListener('submit', (e) => {
+    e.preventDefault()
+    // e.target.elements - to get form element 
+    console.log(e.target.elements.firstName.value)
+    e.target.elements.firstName.value = ''
 })
