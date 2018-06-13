@@ -93,5 +93,6 @@ document.querySelector('#todo-form').addEventListener('submit', (e) => {
     const newTodo = { text: e.target.elements.todoText.value, completed: false }
     todos.push(newTodo)
     renderTodos(todos, filters.searchText)
+    e.target.elements.todoText.value = ''
 
 })
