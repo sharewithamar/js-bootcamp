@@ -21,6 +21,10 @@ const todos = [{
     completed: false
 },
 {
+    text: 'Javascript Andrew',
+    completed: true
+},
+{
     text: 'Angular',
     completed: false
 },
@@ -46,18 +50,40 @@ p.forEach(element => {
 
 //You have two todos left in a paragraph tag
 
-const todosLeft = todos.filter(todo => !todo.completed)
 
-const summary = document.createElement('h2')
-summary.textContent = `you have ${todosLeft.length} todos left`
-document.querySelector('body').appendChild(summary)
 //print a p tag for each todo above , textValue 
-todos.forEach(todo => {
+/* todos.forEach(todo => {
     let currentTodoElement = document.createElement('p')
     currentTodoElement.textContent = todo.text
     document.querySelector('body').appendChild(currentTodoElement)
 })
-
+ */
 document.querySelector('#add-todo').addEventListener('click', (e) => {
     console.log("Add todo button clicked")
+})
+
+const filters = {
+    searchText: ''
+}
+
+const renderTodos = function (todos, searchText) {
+    document.querySelector('#todos').innerHTML = ''
+    const filteredTodos = todos.filter(todo => todo.text.toLowerCase().includes(searchText.toLowerCase()))
+    const todosLeft = filteredTodos.filter(todo => !todo.completed)
+
+    const summary = document.createElement('h2')
+    summary.textContent = `you have ${todosLeft.length} todos left`
+    document.querySelector('#todos').appendChild(summary)
+
+    filteredTodos.forEach(todo => {
+        const todoEl = document.createElement('p')
+        todoEl.textContent = todo.text
+        document.querySelector('#todos').appendChild(todoEl)
+    })
+}
+renderTodos(todos, filters.searchText)
+
+document.querySelector('#search-text').addEventListener('input', (e) => {
+    filters.searchText = e.target.value
+    renderTodos(todos, filters.searchText)
 }) 
