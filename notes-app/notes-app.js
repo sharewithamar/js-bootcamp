@@ -75,9 +75,13 @@ document.querySelector('#search-text').addEventListener('input', (e) => {
     renderNotes(notes, filters)
 })
 
-document.querySelector('#name-form').addEventListener('submit', (e) => {
+/* document.querySelector('#name-form').addEventListener('submit', (e) => {
     e.preventDefault()
     // e.target.elements - to get form element 
     console.log(e.target.elements.firstName.value)
     e.target.elements.firstName.value = ''
-})
+}) */
+
+document.querySelector('#for-fun').addEventListener('change', function (e) {
+    console.log(e.target.checked)
+});

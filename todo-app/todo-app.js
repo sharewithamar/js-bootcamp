@@ -63,36 +63,52 @@ p.forEach(element => {
 }) */
 
 const filters = {
-    searchText: ''
+    searchText: '',
+    hideCompleted: false
 }
 
-const renderTodos = function (todos, searchText) {
+const renderTodos = function (todos, filters) {
     document.querySelector('#todos').innerHTML = ''
-    const filteredTodos = todos.filter(todo => todo.text.toLowerCase().includes(searchText.toLowerCase()))
-    const todosLeft = filteredTodos.filter(todo => !todo.completed)
+    const filteredTodos = todos.filter(todo => {
+        const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
+        const hideCompletedMatch = !filters.hideCompleted || !todo.completed
+        return searchTextMatch && hideCompletedMatch
+    })
+
+    const incompleteTodos = filteredTodos.filter(todo => !todo.completed)
 
     const summary = document.createElement('h2')
-    summary.textContent = `you have ${todosLeft.length} todos left`
+    summary.textContent = `you have ${incompleteTodos.length} todos left`
     document.querySelector('#todos').appendChild(summary)
+
 
     filteredTodos.forEach(todo => {
         const todoEl = document.createElement('p')
         todoEl.textContent = todo.text
         document.querySelector('#todos').appendChild(todoEl)
     })
+
+
+
 }
-renderTodos(todos, filters.searchText)
+renderTodos(todos, filters)
 
 document.querySelector('#search-text').addEventListener('input', (e) => {
     filters.searchText = e.target.value
-    renderTodos(todos, filters.searchText)
+    renderTodos(todos, filters)
 })
 
 document.querySelector('#todo-form').addEventListener('submit', (e) => {
     e.preventDefault()
     const newTodo = { text: e.target.elements.todoText.value, completed: false }
     todos.push(newTodo)
-    renderTodos(todos, filters.searchText)
+    renderTodos(todos, filters)
     e.target.elements.todoText.value = ''
 
 })
+
+document.querySelector('#hide-completed').addEventListener('change', function (e) {
+    filters.hideCompleted = e.target.checked;
+    renderTodos(todos, filters)
+
+});
