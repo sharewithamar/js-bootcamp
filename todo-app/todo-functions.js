@@ -13,8 +13,18 @@ const saveTodos = function (todos) {
 }
 
 const generateTodoDom = function (todo) {
-    const todoEl = document.createElement('p')
-    todoEl.textContent = todo.text
+    const todoEl = document.createElement('div')
+    const checkbox = document.createElement('input')
+    const todoText = document.createElement('span')
+    const removeButton = document.createElement('button')
+    removeButton.textContent = 'x'
+    checkbox.setAttribute('type', 'checkbox')
+
+    todoText.textContent = todo.text
+    todoEl.appendChild(checkbox)
+    todoEl.appendChild(todoText)
+    todoEl.appendChild(removeButton)
+
     return todoEl
 }
 const generateSummaryDom = function (incompleteTodos) {
