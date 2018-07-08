@@ -14,7 +14,7 @@ document.querySelector('#search-text').addEventListener('input', (e) => {
 
 document.querySelector('#todo-form').addEventListener('submit', (e) => {
     e.preventDefault()
-    const newTodo = { id:uuidv4(), text: e.target.elements.todoText.value, completed: false }
+    const newTodo = { id: uuidv4(), text: e.target.elements.todoText.value, completed: false }
     todos.push(newTodo)
     saveTodos(todos)
     renderTodos(todos, filters)
