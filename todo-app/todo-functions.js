@@ -14,7 +14,8 @@ const saveTodos = function (todos) {
 
 const removeTodo = function (id) {
     const todoIndex = todos.findIndex(todo => todo.id === id)
-    todos.splice(todoIndex, 1)
+    if (todoIndex > -1)
+        todos.splice(todoIndex, 1)
 }
 const generateTodoDom = function (todo) {
     const todoEl = document.createElement('div')
