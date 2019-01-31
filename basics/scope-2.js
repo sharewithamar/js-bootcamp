@@ -1,16 +1,19 @@
-//Global
-//Variables can be refined in another scope !!
-// leaked Global - when we assign a valyue to a variable , but that variable was never explicity defined in that scope it will leak to global
+// Global
+  // Local
+    // Local (name)
+  // Local
 
-//let name = 'Amar';
+///let name = 'Andrew'
+
 if (true) {
-  // let name = 'Rajasekaran'; //Variable Shadowing
-  if (true) {
-    let name = 'Ertugrul';
-    console.log(name);
-  }
+    //let name = 'Mike'
+
+    if (true) {
+        let name = 'Jen'
+        console.log(name)
+    }
 }
 
 if (true) {
-  console.log(name);
+    console.log(name)
 }

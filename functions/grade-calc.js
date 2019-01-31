@@ -1,21 +1,33 @@
-// students score ,total possible score
+// students score, total possible score
+// 15/20 -> You got a C (75%)!
+// A 90-100, B 80-89, C 70-79, D 60-69, F 0-59
 
-// 15/20 - you got a C (75%) !
-// A 90-100 B- 80-89 C 70-79 D 60-69 F 0-59
+const gradeCalc = function (score, totalScore) {
+    if (typeof score !== 'number' || typeof totalScore !== 'number') {
+        throw Error('Please provide numbers only')
+    }
 
-let calculateGrade = function (studentScore, totalScore) {
-  let grade = ((studentScore / totalScore) * 100).toFixed(2);
-  let letterGrade = ''
-  if (grade >= 90) letterGrade = `A`;
-  else if (grade >= 80 && grade <= 89) letterGrade = `B`;
-  else if (grade >= 70 && grade <= 79) letterGrade = `C`;
-  else if (grade >= 60 && grade <= 69) letterGrade = `D`;
-  else letterGrade = `F`;
-  return `you got a ${letterGrade} (${grade}}%) !`
-};
+    const percent = (score / totalScore) * 100
+    let letterGrade = ''
 
-console.log(calculateGrade(76, 100));
-console.log(calculateGrade(89, 100));
-console.log(calculateGrade(69, 100));
-console.log(calculateGrade(73, 100));
-console.log(calculateGrade(55, 100));
+    if (percent >= 90) {
+        letterGrade = 'A'
+    } else if (percent >= 80) {
+        letterGrade = 'B'
+    } else if (percent >= 70) {
+        letterGrade = 'C'
+    } else if (percent >= 60) {
+        letterGrade = 'D'
+    } else {
+        letterGrade = 'F'
+    }
+
+    return `You got a ${letterGrade} (${percent}%)!`
+}
+
+try {
+    const result = gradeCalc(9, true)
+    console.log(result)
+} catch (e) {
+    console.log(e.message)
+}

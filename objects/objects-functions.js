@@ -5,42 +5,33 @@ let myBook = {
 }
 
 let otherBook = {
-    title: 'chronicles',
-    author: 'Archer',
-    pageCount: 1000
+    title: 'A Peoples History',
+    author: 'Howard Zinn',
+    pageCount: 723
 }
 
-
 let getSummary = function (book) {
-
     return {
         summary: `${book.title} by ${book.author}`,
         pageCountSummary: `${book.title} is ${book.pageCount} pages long`
     }
-
-
 }
 
-let bookSummary = getSummary(myBook);
-//console.log(bookSummary.summary);
+let bookSummary = getSummary(myBook)
+let otherBookSummary = getSummary(otherBook)
 
+console.log(bookSummary.pageCountSummary)
 
-let otherBookSummary = getSummary(otherBook);
-//console.log(otherBookSummary.pageCountSummary);
+// Challenge area
+// Create function - take fahrenheit in - return object with all three
 
-
-//Challenge 
-
-let temperatureObject = function (fahrenheit) {
-
+let convertFahrenheit = function (fahrenheit) {
     return {
-        fahrenheit,
-        celcius: (fahrenheit - 32) * 5 / 9,
-        kelvin: (fahrenheit + 459.67) * 5 / 9,
+        fahrenheit: fahrenheit,
+        kelvin: (fahrenheit + 459.67) * (5 / 9),
+        celsius: (fahrenheit - 32) * (5 / 9)
     }
 }
 
-console.log(temperatureObject(50).celcius);
-console.log(temperatureObject(50).kelvin);
-console.log(temperatureObject(50).fahrenheit);
-
+let temps = convertFahrenheit(74)
+console.log(temps)

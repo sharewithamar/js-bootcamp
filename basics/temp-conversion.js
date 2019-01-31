@@ -1,13 +1,6 @@
-let fahrenheit = 50;
+let fahrenheit = 50 // 0c - 273.15k
+let celsius = (fahrenheit - 32) * 5 / 9
+let kelvin = (fahrenheit + 459.67) * 5 / 9
 
-//calculate celsius and store in celsius variable
-let celsius = (fahrenheit - 32) * 5 / 9;
-console.log(celsius + 'c');
-
-//print that value
-
-//calculate kelvin and store in celsius variable
-let kelvin = celsius + 273.15;
-console.log(kelvin + 'k');
-
-//print that value
+console.log(celsius)
+console.log(kelvin)

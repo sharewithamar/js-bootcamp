@@ -3,24 +3,21 @@ let myBook = {
     author: 'George Orwell',
     pageCount: 326
 }
+
 console.log(`${myBook.title} by ${myBook.author}`)
 
+myBook.title = 'Animal Farm'
 
-myBook.title = 'animal farm'
 console.log(`${myBook.title} by ${myBook.author}`)
 
+// Challenge area
 
-//Model a person
-
-let person = {
-
-    firstName: 'Amarnath',
-    age: 29,
-    location: 'Banglore'
+let me = {
+    name: 'Andrew',
+    age: 27,
+    location: 'Philadelphia'
 }
 
-console.log(`${person.firstName} is ${person.age} years old and lives in ${person.location}`)
-
-person.age = person.age + 1;
-console.log(`${person.firstName} is ${person.age} years old and lives in ${person.location}`)
-
+console.log(`${me.name} is ${me.age} and lives in ${me.location}.`)
+me.age = me.age + 1
+console.log(`${me.name} is ${me.age} and lives in ${me.location}.`)

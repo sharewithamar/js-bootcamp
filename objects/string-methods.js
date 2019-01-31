@@ -1,31 +1,28 @@
-let name = ' Amarnath Rajasekaran '
+let name = '  Andrew Mead '
 
-//length property
+// Length property
 console.log(name.length)
 
-//uppercase Method
+// Convert to upper case
 console.log(name.toUpperCase())
 
-//lowercase Method
+// Convert to lower case
 console.log(name.toLowerCase())
 
-//includes Method
-let password = 'abc123password098'
+// Includes method
+let password = 'abc123asdf098'
 console.log(password.includes('password'))
 
-//trim Method - removes before and after spaces
+// Trim
 console.log(name.trim())
 
+// Challenge area
 
-//Challenge 
-
-// isValidPassword  - true if length is more than 8 and doesn't contain the word password
-
-let isValidPassword = function (str) {
-    let query = str.trim()
-    return query.length >= 8 && !query.includes('password')
+// isValidPassword
+let isValidPassword = function (password) {
+    return password.length > 8 && !password.includes('password')
 }
 
 console.log(isValidPassword('asdfp'))
-console.log(isValidPassword('asdfp123 '))
-console.log(isValidPassword('asdfpasdas123aspassword'))
+console.log(isValidPassword('abc123!@#$%^&'))
+console.log(isValidPassword('asdfpasdfpoijpassword'))

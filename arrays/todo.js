@@ -1,78 +1,52 @@
-// const todos = ['js', 'Html5', 'css3', 'angular', 'polymer']
-
-// // console.log(todos[0])
-// // console.log(`you have ${todos.length} todos`)
-// // console.log(`Todo: ${todos[todos.length - 2]}`)
-// console.log(todos)
-
-// //delete 3rd item
-// todos.splice(2, 1)
-// console.log(todos)
-
-// //add a new item in the  end
-// todos.push('new item')
-// console.log(todos)
-
-// //remove first item in the list
-// todos.shift()
-
-// // foreach
-
-// todos.forEach((item, index) => console.log(`${index + 1}.${item}`))
-
-// //using for
-// for (let count = 0; count < todos.length; count++) {
-//     console.log(`${count + 1}.${todos[count]}`)
-// }
-
-//convert array in to array of objects - text,completed
 const todos = [{
-    text: 'HTML5',
+    text: 'Order cat food',
+    completed: false
+}, {
+    text: 'Clean kitchen',
     completed: true
 }, {
-    text: 'Node',
+    text: 'Buy food',
+    completed: true
+}, {
+    text: 'Do work',
     completed: false
 }, {
-    text: 'Python',
-    completed: false
+    text: 'Exercise',
+    completed: true
 }]
 
-//create function to remove a todo by text value
-const deleteTodo = function (todos, text) {
-
-    const index = todos.findIndex((todo) => todo.text.toLowerCase() === text.toLowerCase())
-    if (index > -1)
-        todos.splice(index, 1)
-
-
-}
-
-
-const getThingsToDO = function (todos) {
-    return todos.filter((todo) => !todo.completed)
-}
-
-
 const sortTodos = function (todos) {
-    todos.sort((a, b) => {
+    todos.sort(function (a, b) {
         if (!a.completed && b.completed) {
             return -1
-        }
-        else if (!b.completed && a.completed) {
+        } else if (!b.completed && a.completed) {
             return 1
-
-        }
-        else {
+        } else {
             return 0
         }
     })
 }
 
-sortTodos(todos)
+const deleteTodo = function (todos, todoText) {
+    const index = todos.findIndex(function (todo) {
+        return todo.text.toLowerCase() === todoText.toLowerCase()
+    })
 
+    if (index > -1) {
+        todos.splice(index, 1)
+    }
+}
+
+const getThingsToDo = function (todos) {
+    return todos.filter(function (todo) {
+        return !todo.completed
+    })
+}
+
+sortTodos(todos)
 console.log(todos)
 
-//console.log(getThingsToDO(todos))
-
-//deleteTodo(todos, 'HTML5')
-//console.log(todos)
+// console.log(getThingsToDo(todos))
+ 
+// deleteTodo(todos, '!!buy food')
+// console.log(todos)

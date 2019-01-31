@@ -1,29 +1,26 @@
-//undefined for variable
-let name;
+// Undefined for variable
+let name
+
+name = 'Jen'
 
 if (name === undefined) {
-  console.log('please provide a name');
+    console.log('Please provide a name')
 } else {
-  console.log(name);
+    console.log(name)
 }
 
-//undefined for function - when a value is not passed to a function argument
+// Undefined for function arguments
+// Undefined as function return default value
+let square = function (num) {
+    console.log(num)
+}
 
-let square = function(num) {
-  console.log(num);
-};
-//undefined if a function is assigned and If that function does not return anything
-let result = square();
-console.log(result);
+let result = square()
+console.log(result)
 
-//variables can be assigned undefined to clear as well
+// Null as assined value
+let age = 27
 
-//null as assgined value
-let age = 29;
+age = null
 
-age = null;
-
-console.log(age);
-
-//null explicilty cleared by the user '
-// undefined set by the javascript
+console.log(age)
